@@ -61,5 +61,3 @@ def tmp777_path(tmp_path):
 
 
 from .fixtures_server import *  # noqa F403
-from .fixtures_tasks import *  # noqa F403
-from .fixtures_slurm import *  # noqa F403

@@ -1,15 +1,3 @@
-"""
-Copyright 2022 (C) Friedrich Miescher Institute for Biomedical Research and
-University of Zurich
-
-Original authors:
-Jacopo Nespolo <jacopo.nespolo@exact-lab.it>
-
-This file is part of Fractal and was originally developed by eXact lab S.r.l.
-<exact-lab.it> under contract with Liberali Lab from the Friedrich Miescher
-Institute for Biomedical Research and Pelkmans Lab from the University of
-Zurich.
-"""
 import logging
 import random
 import shutil
@@ -29,7 +17,6 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from fractal_server.app.db import get_async_db
-from fractal_server.app.routes.api.v1.project import _encode_as_utc
 from fractal_server.app.security import _create_first_user
 from fractal_server.config import get_settings
 from fractal_server.config import Settings
