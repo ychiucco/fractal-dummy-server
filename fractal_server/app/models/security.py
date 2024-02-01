@@ -1,14 +1,3 @@
-# This is based on fastapi_users_db_sqlmodel
-# <https://github.com/fastapi-users/fastapi-users-db-sqlmodel>
-# Original Copyright
-# Copyright 2022 François Voron
-# License: MIT
-#
-# Modified by:
-# Tommaso Comparin <tommaso.comparin@exact-lab.it>
-#
-# Copyright 2022 (C) Friedrich Miescher Institute for Biomedical Research and
-# University of Zurich
 from typing import Optional
 
 from pydantic import EmailStr
@@ -22,23 +11,6 @@ from .linkuserproject import LinkUserProject
 
 
 class OAuthAccount(SQLModel, table=True):
-    """
-    OAuth account model
-
-    This class is based on fastapi_users_db_sqlmodel::SQLModelBaseOAuthAccount.
-    Original Copyright: 2021 François Voron, released under MIT licence.
-
-    Attributes:
-        id:
-        user_id:
-        user:
-        oauth_name:
-        access_token:
-        expires_at:
-        refresh_token:
-        account_id:
-        account_email:
-    """
 
     __tablename__ = "oauthaccount"
 
@@ -57,27 +29,6 @@ class OAuthAccount(SQLModel, table=True):
 
 
 class UserOAuth(SQLModel, table=True):
-    """
-    User model
-
-    This class is a modification of SQLModelBaseUserDB from from
-    fastapi_users_db_sqlmodel. Original Copyright: 2022 François Voron,
-    released under MIT licence.
-
-    Attributes:
-        id:
-        email:
-        hashed_password:
-        is_active:
-        is_superuser:
-        is_verified:
-        slurm_user:
-        slurm_accounts:
-        cache_dir:
-        username:
-        oauth_accounts:
-        project_list:
-    """
 
     __tablename__ = "user_oauth"
 
