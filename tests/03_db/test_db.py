@@ -32,31 +32,23 @@ async def test_sync_db(db_sync, db):
     assert db_sync.get_bind()
 
     from sqlmodel import select
-    from fractal_server.app.models.task import Task
+    from fractal_server.app.models import Project
 
-    db.add(
-        Task(
-            name="mytask",
-            input_type="image",
-            output_type="zarr",
-            command="cmd",
-            source="/source",
-        )
-    )
+    db.add(Project(name="myproject"))
     await db.commit()
 
     # Async
-    stm = select(Task)
+    stm = select(Project)
     res = await db.execute(stm)
-    task_list = res.scalars().all()
-    assert len(task_list) == 1
-    assert task_list[0].name == "mytask"
+    project_list = res.scalars().all()
+    assert len(project_list) == 1
+    assert project_list[0].name == "myproject"
 
     # Sync
     res = db_sync.execute(stm)
-    task_list = res.scalars().all()
-    assert len(task_list) == 1
-    assert task_list[0].name == "mytask"
+    project_list = res.scalars().all()
+    assert len(project_list) == 1
+    assert project_list[0].name == "myproject"
 
 
 @pytest.mark.skipif(
